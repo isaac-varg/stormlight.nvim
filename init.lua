@@ -31,8 +31,23 @@ require("lazy").setup({
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = {} },
 	-- telescope
 	-- https://github.com/nvim-telescope/telescope.nvim
- 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+ 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' },
+	-- treesitter
+	-- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation
+	{"nvim-treesitter/nvim-treesitter", 
+		build = ":TSUpdate"}, 
+		config = function () 
+      			local configs = require("nvim-treesitter.configs")
+      			configs.setup({
+          			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html", 
+					"typescript", "arduino", "bash", "Gadot", "go", "json", "prisma", "css", "dart",
+				},
+         			sync_install = false,
+         			highlight = { enable = true },
+         			indent = { enable = true },  
+        })
+    end
+	}  
 
 })
 
