@@ -12,7 +12,7 @@ return { "nvim-neo-tree/neo-tree.nvim",
 		-- Sets Ctrl + n to open neotree
 		-- The <CR> is 'carriage return' which presses enter i think?
 		-- without it it I had to hit enter so probably
-		vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
+		vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>')
 	end
 }
 

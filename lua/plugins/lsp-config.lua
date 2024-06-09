@@ -31,6 +31,7 @@ return {
 				-- see line 8
 				ensure_installed = {
 					"lua_ls",
+					"tsserver",
 				}
 			})
 		end
@@ -38,8 +39,12 @@ return {
 	},
 	{ "neovim/nvim-lspconfig",
 		config = function()
+			-- sets lspconfig to this variabel so we can call and configure
 			local lspconfig = require("lspconfig")
+			-- configure lua_ls
 			lspconfig.lua_ls.setup({})
+			-- configure tsserver
+			lspconfig.tsserver.setup({})
 			-- sets Shift K to provide us with hover documentation
 			-- what it actually calls was learned from ":help vim.lsp.buf"
 			vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
