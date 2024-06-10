@@ -10,9 +10,17 @@
 --
 -- friendly snippets, https://github.com/rafamadriz/friendly-snippets
 -- gives us the cool vscode like snippets..
+--
+-- cmp-nvim-lsp, https://github.com/hrsh7th/cmp-nvim-lsp
+-- the last thing reaches out to any lsps in current buffer
+-- and ask it for completion recommends then cmp will use thoses completions
+--
 ]]
 
 return {
+	{
+		"hrsh7th/cmp-nvim-lsp",
+	},
 	{
 		"L3MON4D3/LuaSnip",
 		-- completion engine for luasnip
@@ -55,7 +63,7 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					-- { name = "nvim_lsp" },
+					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
