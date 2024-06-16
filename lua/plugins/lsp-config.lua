@@ -34,6 +34,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"tsserver",
+					"gopls"
 				},
 			})
 		end,
@@ -55,6 +56,17 @@ return {
 			-- configure tsserver
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
+			})
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				cmd = {"gopls"},
+				filetypes = { "go", "gomod", "gowork", "gotmpl" },
+				settings = {
+					gopls = {
+						completeUnimported = true,
+						usePlaceholders = true,
+					}
+				}
 			})
 			-- sets Shift K to provide us with hover documentation
 			-- what it actually calls was learned from ":help vim.lsp.buf"
