@@ -11,7 +11,7 @@
 -- friendly snippets, https://github.com/rafamadriz/friendly-snippets
 -- gives us the cool vscode like snippets..
 --
--- cmp-nvim-lsp, https://github.com/hrsh7th/cmp-nvim-lsp
+-- cmp-nvim-lsp, https://gnonameplusithub.com/hrsh7th/cmp-nvim-lsp
 -- the last thing reaches out to any lsps in current buffer
 -- and ask it for completion recommends then cmp will use thoses completions
 --
@@ -42,7 +42,7 @@ return {
 					-- REQUIRED - you must specify a snippet engine
 					-- i believe this is the piece of code that runs when you select a snippet
 					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+						--vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 						-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
 						-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
@@ -65,11 +65,14 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "buffer" },
+					{ name = "go" },
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
-				}, {
+				})
+				--[[, {
 					{ name = "buffer" },
-				}),
+				}),]]
 			})
 		end,
 	},
